@@ -2,10 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>TODO-App</title>
+    <link rel="Stylesheet" href="Todo.css">
 </head>
 <body>
-    
+
+    <div class="TodoListInsert">
+        <label for="text">Title</label>
+        <input type="text" id="inputTodoListInsertTitle">
+        <label for="text">Content</label>
+        <input type="text" id="inputTodoListInsertContent">
+        <br>
+        <button id="btnInsertTodo">Insert</button>
+    </div>
+
+    <div class="TodoListContent">
+        <ul id="TodoList">
+
+        </ul>
+    </div>
+
+    <script src="Todo.js"></script>
 </body>
 </html>
