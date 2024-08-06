@@ -5,26 +5,27 @@ document.addEventListener('DOMContentLoaded', function(){
     const inputInsertTodoContent = document.getElementById('inputTodoListInsertContent')
     const btnInsertTodo = document.getElementById('btnInsertTodo')
     const todoList = document.getElementById('TodoList')
+    const btnTodoListClear = document.getElementById('btnTodeListClear')
 
     btnInsertTodo.addEventListener('click', function(){
-        if(inputInsertTodoTitle.value === ''){
+        
+        if(inputInsertTodoTitle.value === '' && inputInsertTodoContent.value === ''){
             return
         }
 
         const itemsAmount = todoList.getElementsByTagName('li').length
-        var todoTitle = document.createElement('li')
-        todoTitle.id = 'todoTitle_' + itemsAmount
-        todoTitle.innerHTML = inputInsertTodoTitle.value
-        todoList.appendChild(todoTitle)
 
-        var todoContent = document.createElement('label')
-        todoContent.innerHTML = inputInsertTodoContent.value
-        todoContent.id = 'todoContent_' + itemsAmount
-        todoList.appendChild(todoContent)
+        function AddElemntToTodoList(id, element, innerHTML ){
+            var todoElement = document.createElement(element)
+            todoElement.id = id + itemsAmount
+            todoElement.innerHTML = innerHTML
+            todoList.appendChild(todoElement)
+            return todoElement
+        }
 
-        let btnRemoveTodo = document.createElement('button')
-        btnRemoveTodo.innerHTML = 'Remove'
-        btnRemoveTodo.id = 'btnRemove_' + itemsAmount
+        AddElemntToTodoList('todoTitle_', 'li', inputInsertTodoTitle.value)
+        AddElemntToTodoList('todoContent_','label',  inputInsertTodoContent.value + '<br>')
+        const btnRemoveTodo = AddElemntToTodoList('btnRemove_', 'button', 'Remove')
 
         btnRemoveTodo.addEventListener('click', function(event){
             const name = String(btnRemoveTodo.id)
@@ -38,5 +39,14 @@ document.addEventListener('DOMContentLoaded', function(){
         
         inputInsertTodoTitle.value = ''
         inputInsertTodoContent.value = ''
+    })
+
+
+    btnTodoListClear.addEventListener('click', function(){
+        
+        while(todoList.firstChild){
+            todoList.removeChild(todoList.firstChild)
+        }
+
     })
 })

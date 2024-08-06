@@ -6,20 +6,20 @@
     <link rel="Stylesheet" href="Todo.css">
 </head>
 <body>
-
     <div class="TodoListInsert">
-        <label for="text">Title</label>
-        <input type="text" id="inputTodoListInsertTitle">
-        <label for="text">Content</label>
-        <input type="text" id="inputTodoListInsertContent">
+        <label for="text" class="todoInsertLabel">Title </label>
+        <input type="text" id="inputTodoListInsertTitle" class="inputTodoListInsert">
+        <label for="text" class="todoInsertLabel">Content</label>
+        <input type="text" id="inputTodoListInsertContent" class="inputTodoListInsert">
         <br>
         <button id="btnInsertTodo">Insert</button>
     </div>
 
     <div class="TodoListContent">
         <ul id="TodoList">
-
         </ul>
+
+        <button id="btnTodeListClear">Clear all</button>
     </div>
 
     <script src="Todo.js"></script>
